@@ -17,14 +17,14 @@ ARGV.each do |arg|
     i = 0
     l = result.size
     while !is_inserted && i < l do
-        if result[i] < i_arg
-            i += 1
-        else
-            result.insert(i - 1, i_arg)
+        if result[i] > i_arg # greater than sign instead of less than
+            result.insert(i, i_arg) # insert at position i
             is_inserted = true
-            break
+
         end
+            i += 1
     end
+    #if not inserted in the loop, append at the end
     result << i_arg if !is_inserted
 end
 
